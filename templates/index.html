@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+
+{% block header %} IDX Scraper {% endblock %}
+{% block subheader %} A simple scraper that gets and analyzes recent performance data from <a target="_blank" href="https://idx.co.id/data-pasar/laporan-statistik/ringkasan-performa-perusahaan-tercatat/">here</a>. {% endblock %}
+
+{% block body %}
+
+<table style="margin: 0 auto">
+    <thead>
+        <th>No.</th>
+        <th>Company Code</th>
+        <th>Company Name</th>
+        <th>Invest Here?</th>
+        <th>Details</th>
+    </thead>
+    <tbody>
+        {% for company in companies %}
+        <tr style="text-align: center;">
+            <td>{{ company.number }}</td>
+            <td>{{ company.code }}</td>
+            <td>{{ company.name }}</td>
+            <td>{{ "YES" if company.passed else "NO" }}</td>
+            <td>
+                <a href="{{ url_for('company_details', code=company.code, name=company.name, der=company.latest_der, pbv=company.latest_pbv, roe=company.latest_roe, per=company.latest_per, passed=company.passed) }}">Details</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

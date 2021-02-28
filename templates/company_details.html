@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+
+{% block header %} {{ code }} {% endblock %}
+{% block subheader %} {{ name }} {% endblock %}
+
+{% block body %}
+
+<table style="margin: 0 auto;">
+    <tbody>
+        <tr>
+            <td><b>DER</b></td>
+            <td>{{ der }}</td>
+        </tr>
+        <tr>
+            <td><b>PBV</b></td>
+            <td>{{ pbv }}</td>
+        </tr>
+        <tr>
+            <td><b>ROE</b></td>
+            <td>{{ roe }}</td>
+        </tr>
+        <tr>
+            <td><b>PER</b></td>
+            <td>{{ per }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Invest Here? <b>{{ "YES" if passed=="True" else "NO" }}</b>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <a href="{{ url_for('index') }}">Back</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

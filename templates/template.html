@@ -1,0 +1,19 @@
+<html>
+
+    <head>
+        <title>IDX Scraper</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        {% block import %}{% endblock %}
+    </head>
+
+    <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+        <div style="text-align: center;">
+            <h1>{% block header %}{% endblock %}</h1>
+            <h3>{% block subheader %}{% endblock %}</h3>
+        </div>
+        {% block body %}{% endblock %}
+
+    </body>
+
+</html>
